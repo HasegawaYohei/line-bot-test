@@ -18,11 +18,11 @@ app.use(bodyParser.urlencoded({
 
 const getReplyMessage = async query => {
   const url = `https://api.a3rt.recruit-tech.co.jp/talk/v1/smalltalk`;
-  const postData = {
+  const data = {
     apikey: A3RT_API_KEY,
     query
   };
-  const result = await axios.post(url, postData);
+  const result = await axios.post(url, data);
 
   return result.message;
 }
