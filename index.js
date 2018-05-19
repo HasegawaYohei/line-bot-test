@@ -25,7 +25,7 @@ const getReplyMessage = async query => {
   };
   const result = await axios.post(url, querystring.stringify(data)).catch(e => e);
 
-  return result.data.result[0].reply;
+  return result.data.results[0].reply;
 }
 
 app.post('/callback', async (req, res) => {
