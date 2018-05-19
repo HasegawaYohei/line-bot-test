@@ -29,7 +29,9 @@ const getReplyMessage = async query => {
 }
 
 app.post('/callback', async (req, res) => {
+  console.log(1);
   const message = await getReplyMessage(req.body.events[0].message.text);
+  console.log(2);
   const options = {
     method: 'POST',
     uri: 'https://api.line.me/v2/bot/message/reply',
