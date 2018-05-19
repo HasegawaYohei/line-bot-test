@@ -1,5 +1,6 @@
 // import modules
 require('dotenv').config()
+const querystring = require('querystring');
 const express = require('express')
 const request = require('request')
 const bodyParser = require('body-parser')
@@ -22,9 +23,9 @@ const getReplyMessage = async query => {
     apikey: A3RT_API_KEY,
     query
   };
-  const result = await axios.post(url, data);
+  const result = await axios.post(url, querystring.stringify(data)).catch(e => e);
 
-  return result.message;
+  return result.data.result[0].reply;
 }
 
 app.post('/callback', async (req, res) => {
