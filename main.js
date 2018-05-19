@@ -29,7 +29,7 @@ app.post('/webhook', (req, res, next) => {
       }]
     };
     reply(body);
-  }
+  });
 });
 
 const getReplyMessage = async query => {
